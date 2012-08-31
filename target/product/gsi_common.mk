@@ -77,6 +77,7 @@ PRODUCT_EXTRA_VNDK_VERSIONS := 28
 PRODUCT_PACKAGES += \
     WAPPushManager
 
+
 # NFC:
 #   Provide a libnfc-nci.conf to GSI product
 PRODUCT_COPY_FILES += \
