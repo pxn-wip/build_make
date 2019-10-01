@@ -94,6 +94,17 @@ function destroy_build_var_cache()
     unset cached_abs_vars
 }
 
+  function mka() {
+    case `uname -s` in
+        Darwin)
+            make -j `sysctl hw.ncpu|cut -d" " -f2` "$@"
+            ;;
+        *)
+            schedtool -B -n 1 -e ionice -n 1 make -j$(cat /proc/cpuinfo | grep "^processor" | wc -l) "$@"
+            ;;
+    esac
+}
+
 # Get the value of a build variable as an absolute path.
 function get_abs_build_var()
 {
