@@ -234,7 +234,7 @@ include $(BUILD_SYSTEM)/envsetup.mk
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
 -include vendor/extra/BoardConfigExtra.mk
-include vendor/nitrogen/config/BoardConfigNitrogen.mk
+include vendor/pixen/config/BoardConfigPixen.mk
 
 # The build system exposes several variables for where to find the kernel
 # headers:
@@ -1174,7 +1174,7 @@ dont_bother_goals := out \
     product-graph dump-products
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include $(TOPDIR)vendor/nitrogen/config/BoardConfigQcom.mk
+include $(TOPDIR)vendor/pixen/config/BoardConfigQcom.mk
 endif
 
 ifeq ($(CALLED_FROM_SETUP),true)
